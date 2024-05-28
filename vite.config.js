@@ -14,7 +14,6 @@ export default defineConfig({
         asteroidfeed: resolve(__dirname, 'src/asteroid-feed/index.html'),
         asteroidlist: resolve(__dirname, 'src/asteroid-list/index.html'),
         dailypicture: resolve(__dirname,'src/daily-picture/index.html'),
-        success: resolve(__dirname,'src/checkout/success.html'),
       },
     },
   },
