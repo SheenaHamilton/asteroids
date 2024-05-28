@@ -19,4 +19,4 @@ WDD 330 Final Project
 - `npm run lint` to run ESLint against your code to find errors.
 - `npm run format` to run Prettier to automatically format your code.
 
-Site URL: 
+Site URL: https://wdd330final-asteroids.netlify.app/
