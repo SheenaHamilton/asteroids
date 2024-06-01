@@ -2,14 +2,14 @@
 
 
 :root {
-  --font-body: 'Chakra Petch', sans-serif;
-  --font-headline: Roboto, sans-serif;
+  --font-body: Roboto, sans-serif;
+  --font-headline: 'Chakra Petch', sans-serif;
 
   /* colors */
   --primary-color: #032B43;
   --secondary-color: #3F88C5;
   --accent1-color: #D00000;
-  --accent2-color: #3F88C5;
+  --accent2-color: #3faac5;
   --light-grey: #d0d0d0;
   --dark-grey: #303030;
 
@@ -22,11 +22,32 @@
   box-sizing: border-box;
 }
 
+html {
+  
+    background: url('/images/stars-2643089_1280.jpg') top right repeat;
+    background-size: cover;
+}
 body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
   margin: 0;
   font-family: var(--font-body);
   font-size: var(--font-base);
-  color: var(--dark-grey);
+  color: var(--light-grey);
+  width: 100vw;
+  height: 100vh;
+  margin: auto;
+}
+
+a {
+  text-decoration: none;
+  color: var(--accent2-color);
+
+}
+
+a:hover {
+  color: var(--light-grey);
 }
 
 img {
@@ -37,21 +58,29 @@ header {
   display: flex;
   justify-content: space-between;
   padding: 0 10px;
+  width: 90%;
+  margin: auto;
 }
 
+main {
+  flex: 1;
+  width: 90%;
+  margin: auto;
+}
 .logo {
-  line-height: 60px;
-  width: 245px;
+  line-height: 200px;
   overflow: hidden;
   display: flex;
-  font-size: 30px;
+  font-size: 5em;
   text-align: right;
   font-family: var(--font-headline);
+  font-weight: bold;
+  color: var(--accent1-color);
 }
 
 .logo img {
-  width: 60px;
-  height: 60px;
+  width: 200px;
+  height: auto;
 }
 
 .logo a {
@@ -107,22 +136,140 @@ ul#breadcrumb li a:hover {
 /* End Breadcrumbs*/
 
 /* Watchlist icon styles */
+.watchlist-container {
+  height: 200px;
+}
 .watchlist {
-  padding-top: 1em;
-  position: relative;
-  text-align: center;
+  display: block;
+  font-family: var(--font-headline);
+  color: var(--accent1-color);
+  font-size: 2em;
+  margin: 100% auto;
 }
 
 .watchlist svg {
-  width: 25px;
+  display: inline-block;
+  height: 50px;
+  fill: var(--light-grey);
+  margin-left: 20px;
 }
 .watchlist:hover svg {
-  fill: gray;
+  fill: var(--accent1-color);
+}
+
+.slideout {
+  display: inline-block;
+  width: 0;
+  white-space: nowrap;
+  direction: rtl;
+  color: rgba(255, 255, 255, 0);
+  transition: .5s;
+  transform: translateX(20px);
+  pointer-events: none;
+  
+}
+
+.watchlist:hover .slideout {
+  color: var(--accent1-color);
+  transform: translateX(-70px);
+  text-shadow: 0 0 .8em #000, 0 0 .8em #000, 0 0 1em #000, 0 0 1em #000;
 }
 
 /* End watchlist icon styles */
-
 footer {
-  font-size: var(--small-font);
-  padding: 1em;
+  background-color: black;
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  font-family: var(--font-headline);
+  color: var(--accent2-color);
+  font-size: 1.5em;
+  width: 90%;
+  margin: auto;
+}
+
+/* -----------Cards-------------------*/
+
+.asteroid-choices {
+  display: grid;
+  width: 90%;
+  grid-template-columns: repeat(auto-fit, minmax(300px,1fr));
+  font-family: var(--font-headline);
+  font-size: 1.5em;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: var(--light-grey);
+  text-decoration: none;
+  text-align: center;
+  margin: 80px auto 80px auto;
+  row-gap: 20px;
+  column-gap: 20px;
+}
+
+.choice-card {
+  background-color: rgba(0, 0, 0, .6);
+  width: 100%;
+  border-radius: 5px;
+  box-shadow: 0 0 25px var(--accent2-color);
+}
+
+.image-container {
+  width: 95%;
+  height: 80%;
+  margin: 2.5% 2.5%;
+}
+
+.choice-card p {
+  width: 95%;
+  height: 10%;
+  margin-block-start: 0;
+  margin-block-end: 0;
+  margin: auto auto;
+}
+
+.choice-card img {
+  width:95%;
+  height: 95%;
+  border-radius: 5px;
+  overflow: hidden;
+  box-shadow: 0 0 1px var(--accent2-color);
+  filter: brightness(1.1);
+  filter: saturate(1.1);
+}
+
+.choice-card:hover {
+  transform: scale(1.2,1.2);
+  filter: brightness(1.2);
+  filter: saturate(1.4);
+  border: 2px solid var(--accent2-color);
+}
+/* -----------End Cards---------------*/
+
+/* -----------Credits-----------------*/
+
+.credits {
+  width: 70%;
+  height: 90%;
+  font-size: 1.5em;
+  font-family: var(--font-headline);
+  box-sizing: border-box;
+  background-color: rgba(0, 0, 0, .6);
+  border-radius: 20px;
+  margin: auto;
+  text-align: center;
+  list-style-type: none;
+  text-transform: uppercase;
+}
+.credits li{
+  padding: 10px;
+}
+/* -----------End Credits-------------*/
+
+#photoofday {
+  font-size: 2em;
+  font-weight: bold;
+  width: 80%;
+  margin: auto;
 }
