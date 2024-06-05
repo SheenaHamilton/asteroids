@@ -12,10 +12,4 @@ export default class ExternalServices {
         const data = await convertToJson(response);
         return data;
     }
-
-    async findProductById(id) {
-        const response = await fetch(neowsBaseURL + `product/${id}`);
-        const data = await convertToJson(response);
-        return data.Result;
-    }
 }

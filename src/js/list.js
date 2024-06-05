@@ -10,6 +10,7 @@ loadHeaderFooter();
 
 let urlParams = window.location.search;
 urlParams = urlParams.replace('?path=','')
+urlParams = urlParams.replace('HTTP=', 'HTTPS');
 
 // had to override the params function due to the pagination.
 let dataPath = '';
