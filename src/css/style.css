@@ -24,8 +24,8 @@
 
 html {
   
-    background: url('/images/stars-2643089_1280.jpg') top right repeat;
-    background-size: cover;
+  background: url('/images/stars-2643089_1280.jpg') top right fixed;
+  background-size: cover;
 }
 body {
   display: flex;
@@ -40,6 +40,10 @@ body {
   margin: auto;
 }
 
+p {
+  margin-block-start: 2px;
+  margin-block-end: 2px;
+}
 a {
   text-decoration: none;
   color: var(--accent2-color);
@@ -88,25 +92,38 @@ main {
   color: var(--font-body);
 }
 
-/* utility classes */
+/* -----------utility classes -----------------*/
 
-button {
+button, #SearchByDate, #SearchByID {
   padding: 0.5em 2em;
-  background-color: var(--secondary-color);
+  background-color: var(--accent1-color);
+  font-family: var(--font-headline);
+  padding: 10px;
+  border-radius: 5px;
   color: white;
   margin: auto;
   display: block;
   border: 0;
-  font-size: var(--large-font);
+  font-size: 1.2em;
   cursor: pointer;
+  border: var(--accent1-color) solid 2px;
+}
+
+button:hover,  #SearchByDate:hover, #SearchByID:hover {
+  filter: brightness(110%);
+  border: var(--light-grey) solid 2px;
+}
+
+button:active,  #SearchByDate:active, #SearchByID:active {
+  filter: brightness(70%);
 }
 
 .divider {
   border-bottom: 2px solid var(--primary-color);
 }
-/* End utility classes */
+/* -----------End utility classes -----------------*/
 
-/* Breadcrumbs */
+/* -----------Breadcrumbs -----------------*/
 ul#breadcrumb {
   padding: 0;
   list-style: none;
@@ -114,22 +131,23 @@ ul#breadcrumb {
 
 ul#breadcrumb li {
   display: inline;
-  font-size: 18px;
+  font-family: var(--font-headline);
+  font-size: 1.3em;
+  text-shadow: 0 0 .8em #000, 0 0 .8em #000, 0 0 1em #000, 0 0 1em #000;
 }
 
 ul#breadcrumb li+li:before {
   padding: 8px;
-  color: black;
+  color: var(--accent2-color);
   content: " /\00a0";
 }
 
 ul#breadcrumb li a {
-  color: #cd8b51;
   text-decoration: none;
 }
 
 ul#breadcrumb li a:hover {
-  color: var(--dark-grey);
+  color: var(--accent1-color);
   text-decoration: underline;
 }
 
@@ -153,6 +171,7 @@ ul#breadcrumb li a:hover {
   fill: var(--light-grey);
   margin-left: 20px;
 }
+
 .watchlist:hover svg {
   fill: var(--accent1-color);
 }
@@ -175,8 +194,22 @@ ul#breadcrumb li a:hover {
   text-shadow: 0 0 .8em #000, 0 0 .8em #000, 0 0 1em #000, 0 0 1em #000;
 }
 
-/* End watchlist icon styles */
+svg.watch {
+  height: 50px;
+  fill: var(--accent1-color);
+}
+
+svg.watch:hover {
+  cursor: pointer;
+}
+
+svg.watch.hide {
+  display: none;
+}
+
+/* ----------- End watchlist icon styles -----------------*/
 footer {
+  margin-top: 50px;
   background-color: black;
 }
 
@@ -190,12 +223,12 @@ footer {
   margin: auto;
 }
 
-/* -----------Cards-------------------*/
+/* ----------- Cards-----------------*/
 
 .asteroid-choices {
   display: grid;
   width: 90%;
-  grid-template-columns: repeat(auto-fit, minmax(300px,1fr));
+  grid-template-columns: repeat(auto-fit, minmax(200px,1fr));
   font-family: var(--font-headline);
   font-size: 1.5em;
   font-weight: bold;
@@ -245,9 +278,9 @@ footer {
   filter: saturate(1.4);
   border: 2px solid var(--accent2-color);
 }
-/* -----------End Cards---------------*/
+/* ----------- End Cards-----------------*/
 
-/* -----------Credits-----------------*/
+/* ----------- Credits -----------------*/
 
 .credits {
   width: 70%;
@@ -272,4 +305,535 @@ footer {
   font-weight: bold;
   width: 80%;
   margin: auto;
+}
+
+/* -----------Badges-----------------*/
+.badge {
+  display: inline-block;
+  padding: 5px 10px;
+  border-radius: 10px;
+  width: 90%;
+}
+
+.low {
+  background-color: green;
+  color: white;
+}
+
+.medium {
+  background-color: orange;
+  color: white;
+}
+
+.high {
+  background-color: red;
+  color: white;
+}
+
+/* -----------Credits-----------------*/
+/* -----------Browse Page & Cards-----------------*/
+
+.grid-view #asteroidlisting {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 400px));
+  row-gap: 20px;
+  column-gap: 20px;
+  margin-bottom: 50px;
+}
+.grid-view .browse-list {
+  display: grid;
+  grid-template-columns: 1fr;
+  font-size: 1.2em;
+  font-family: var(--font-headline);
+  background-color: rgba(43, 42, 42, .7) ;
+  padding: 20px;
+  border: 2px transparent solid;
+  box-shadow: 0 0 2px var(--accent2-color),0 0 20px var(--accent2-color) ;
+}
+
+.grid-view .browse-list:hover {
+  transform: scale(1.2, 1.2);
+  filter: brightness(1.2);
+  filter: saturate(1.4);
+  border: 2px solid var(--accent2-color); 
+  cursor: pointer;
+}
+
+.browse-list .id {
+  color: var(--accent1-color);
+}
+
+.asteroid-size {
+  display: flex;
+  justify-content:space-around;
+}
+
+.hazard-badges {
+  display: flex;
+  justify-content: space-between;
+}
+.list-label {
+  text-transform: uppercase;
+  font-weight: bold;
+  color: var(--accent2-color);
+  padding-right: 5px;
+}
+
+.left {
+  text-align: left;
+}
+
+.right {
+  text-align: left;
+}
+
+
+.grid-view .spaced {
+  letter-spacing: 12px;
+  font-weight: bold;
+}
+.asteroid-size {
+    text-align: center;
+    padding: 10px;
+}
+
+.asteroid-size img.small{
+  width: 50px;
+  height: 50px;
+}
+
+.asteroid-size img.medium {
+  width: 75px;
+  height: 50px;
+}
+.asteroid-size img.large {
+  width: 100px;
+  height: 50px;
+}
+
+.grid-view .size-km {
+  font-weight: bold;
+  font-size: 1.2em;
+}
+
+#results {
+  font-size: 1.4em;
+  padding: 0 40px;
+  font-family: var(--font-headline);
+}
+
+#results-header {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: var(--accent1-color) 3px solid;
+  margin: 50px 0 10px 0;
+  padding: 10px 0 0 0;
+  background-color: rgba(0, 0, 0, .4);
+}
+
+.nav-arrows svg {
+  fill: var(--accent1-color);
+  height: 1.8em;
+  cursor: pointer;
+}
+
+[aria-disabled = "true"] svg {
+  fill: var(--dark-grey);
+  cursor: none;
+}
+
+#pagenav {
+  display: flex;
+  padding: 0 20px;
+}
+
+/* Style for the badges */
+.badge {
+  display: inline-block;
+  padding: 5px 10px;
+  border-radius: 10px;
+  font-size: 12px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.low {
+  background-color: green;
+  color: white;
+}
+
+.medium {
+  background-color: orange;
+  color: white;
+}
+
+.high {
+  background-color: red;
+  color: white;
+}
+/* -----------Browse-----------------*/
+
+/*-----------Asteroid List View-----------------*/
+
+#asteroidlist-format.list-view {
+  background-color: rgba(0, 0, 0, .8);
+  padding: 0 50px;
+}
+.grid-view #asteroid-tableheader {
+  display: none;
+}
+.list-view {
+  font-size: 1.2em;
+}
+
+.list-view .list-label {
+  display: none;
+}
+
+.list-view .br {
+  display: none;
+}
+
+.list-view .spaced {
+  letter-spacing: 8px;
+  font-weight: bold;
+}
+
+
+.list-view .badge {
+  min-width: 10px;
+  max-width: 100px;
+  width: 100%;
+  margin: 0 auto;
+  
+}
+
+.list-view .hazard-badges >* {
+  flex-grow: 1;
+  flex-basis: 0;
+  padding: 5px;
+
+}
+
+.list-view .asteroid-size {
+  display: flex;
+  justify-content: space-between;
+}
+
+.list-view #asteroid-tableheader {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1.5fr;
+  column-gap: 10px;
+  padding: 10px 0;
+  overflow: hidden;
+  text-transform: uppercase;
+  color: var(--accent2-color);
+  font-size: .9em;
+}
+
+.list-view .browse-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1.5fr;
+  column-gap: 10px;
+  padding: 10px 0;
+  overflow: hidden;
+  border-bottom: var(--accent2-color) solid 1px;
+}
+
+.list-view .browse-list:hover {
+  background-color: rgba(250, 250, 250, .2);
+  cursor: pointer;
+}
+/* Button View */
+.asteroid-view {
+  display: flex;
+  justify-content: end;
+  margin-bottom: 10px;
+}
+
+.asteroid-view button {
+  position: relative;
+  padding: 2px 15px;
+  cursor: pointer;
+  background-color: var(--accent1-color);
+  border: var(--accent1-color) solid 2px;
+  border-radius: 5px;
+  margin: 0 5px;
+}
+
+#button-list::after {
+  content: "☰";
+}
+
+#button-grid::after {
+  content: "☷";
+}
+
+.asteroid-view button.list-active {
+  filter: brightness(110%);
+  border: var(--light-grey) solid 2px;
+}
+
+
+/*-----------Pic of Day-------------*/
+#picofDay-container {
+  display: flex;
+  flex-direction: column;
+  row-gap: 40px;
+  background-color: rgba(0, 0, 0, .7);
+  width: 80% ;
+  padding: 20px;
+  margin: auto;
+}
+
+#imagery {
+  margin: auto  auto;
+  height: 500px;
+}
+
+.title-block {
+    display: flex;
+    text-transform: uppercase;
+    font-family: var(--font-headline);
+    font-weight: bold;
+    font-size: 1.5em;
+    color: var(--accent1-color);
+    letter-spacing: 8px;
+    padding-right: 5px;
+    column-gap: 50px;
+    justify-content: space-between;
+}
+
+
+#photo-date {
+  width: 280px;
+} 
+
+#photo-description {
+  width: 90%;
+  margin: auto ;
+  font-size: 1.1em;
+  line-height: 1.5em;
+  color: var(--light-grey);
+  padding: 20px 0 20px 20px;
+  border-left: var(--accent2-color) 4px solid;
+}
+
+#photo-explanation {
+  text-transform: uppercase;
+  font-family: var(--font-headline);
+  font-weight: bold;
+  font-size: 1.3em;
+  color: var(--accent1-color);
+  letter-spacing: 8px;
+  line-height: 1.9em;
+}
+/*-----------End Pic of Day-------------*/
+
+/*-----------Asteroid Feed / Find by ID-------------*/
+#asteroid-feed, #asteroid-find {
+  background-color: rgba(0, 0, 0, .5);
+  width: 80%;
+  padding: 20px;
+  margin: auto;
+  text-align: center;
+}
+#asteroid-feed .title, #asteroid-find .title, #asteroiddetail .title, #watchlist-header .title{
+    text-transform: uppercase;
+    font-family: var(--font-headline);
+    font-weight: bold;
+    font-size: 1.8em;
+    color: var(--accent1-color);
+    letter-spacing: 8px;
+    padding-right: 5px;
+}
+#asteroid-feed p, #asteroid-find p, #asteroiddetail p, #watchlist-header p{ 
+  padding: 10px 0; 
+  font-size: 1.2em;
+}
+
+#SearchByDate, #SearchByID {
+  margin-top: 30px;
+  padding: 10px;
+  background-color: var(--accent1-color);
+  border-radius: 5px;
+  font-size: 1.2em;
+}
+
+#date-inputs {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin: auto;
+  max-width: 600px;
+}
+
+#date-inputs label, #id-input label {
+  display: block;
+  padding-top: 1em;
+  font-size: 1.3em;
+  font-family: var(--font-headline);
+  font-weight: bold;
+  color: var(--accent2-color);
+}
+
+#date-inputs label {
+  padding-left: 5%;
+}
+
+ #date-inputs input, #id-input input {
+  --webkit-appearance: none;
+  display: block;
+  border-radius: 5px;
+  padding: .75rem 0 .75rem 10px;
+  width: 90%;
+  max-width: 20em;
+  margin: auto;
+  font-size: 1.1em;
+  background-color: var(--light-grey);
+}
+
+.validation {
+  color: #fa0303;
+  padding-top: 5px;
+}
+
+#previous span, #next span {
+  color: var(--accent1-color);
+  font-size: 1.2em;
+  font-weight: bold;
+  font-family: var(--font-headline);
+}
+
+/*-----------End Asteroid Feed-------------*/
+
+/*----------- Asteroid Detail-------------*/
+#asteroiddetail {
+  width: 70%;
+  text-align: center;
+  margin: auto;
+}
+
+#details-container {
+  background-color: rgba(0, 0, 0, .7);
+  width: 100%;
+  min-height: 300px;
+  padding: 20px;
+  margin: auto;
+  text-align: center;
+}
+.no-results {
+  background-color: rgba(0, 0, 0, .5);
+  width: 80%;
+  height: 300px;
+  padding: 20px;
+  margin: auto;
+  text-align: center;
+}
+
+#asteroiddetail .list-label {
+  font-family: var(--font-headline);
+}
+
+#asteroiddetail .spaced {
+  letter-spacing: 12px;
+  font-weight: bold;
+  color: var(--accent1-color);
+}
+
+#title-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  column-gap: 40px;
+}
+
+#asteroiddetail .hazard-badges {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  column-gap: 40px;
+}
+
+.asteroid-header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  column-gap: 50px;
+}
+.details-watchlist {
+  align-items: center;
+  justify-content: center;
+  margin: 20px 0 0 0 ;
+}
+
+.asteroid-data-container {
+  display: grid;
+  grid-template-columns: 1fr .8fr 1fr .8fr;
+  width: fit-content;
+  margin: auto auto;
+  text-align: left;
+}
+
+#approachDates-header, .approachDates-item {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  text-align: right;
+  margin: auto auto;
+}
+
+.approachDates-item:hover {
+  background-color: rgba(250, 250, 250, .2);
+}
+
+/*--------------Watchlist--------------*/
+
+#watchlist-header {
+  background-color: rgba(0, 0, 0, .4);
+  width: 100%;
+  padding: 20px;
+  margin: auto;
+  text-align: center;
+  text-align: center;
+}
+
+#asteroidwatch-format.list-view {
+  background-color: rgba(0, 0, 0, .8);
+  padding: 0 50px;
+}  
+
+#watchlist-tableheader {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  column-gap: 10px;
+  padding: 10px 0;
+  overflow: hidden;
+  border-bottom: var(--accent2-color) solid 1px;
+  background-color: rgba(0, 0, 0, .5);
+  text-transform: uppercase;
+  color: var(--accent2-color);
+  font-size: .9em;
+  font-weight: bold;
+}
+
+#watchlist-results .watch-item{
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  column-gap: 10px;
+  padding: 10px 0;
+  overflow: hidden;
+  border-bottom: var(--accent2-color) solid 1px;
+}
+.watch-item .id {
+  color: var(--accent1-color);
+}
+
+
+.watchitem-container {
+    background-color: rgba(0, 0, 0, .8);
+}
+.watchitem-container:hover {
+  background-color: rgba(250, 250, 250, .2);
+  cursor: pointer;
 }

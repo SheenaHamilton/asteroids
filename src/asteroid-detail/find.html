@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Asteroids</title>
+    <link rel="stylesheet" href="../css/style.css" />
+    <script src="../js/find.js" type="module"></script>
+</head>
+
+<body>
+    <header></header>
+    <main>
+        <ul id="breadcrumb"></ul>
+        <div id="asteroid-find">
+            <p class="title">Find an Asteroid</p>
+            <p>Find a specific asteroid by entering the asteroid id.</p>
+            <p>Please enter the ID of the asteroid you'd like to view:</p>
+            <form action="../asteroid-detail/index.html">
+                <div id="id-input">
+                    <label>Enter Asteroid ID<input type="text" id="asteroidID" name="asteroid_id" required/></label>
+                </div>
+                <input type="submit" id="SearchByID" value="Find Asteroid">
+            </form>
+        </div>
+    </main>
+    <footer></footer>
+</body>
+
+</html>
