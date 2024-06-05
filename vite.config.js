@@ -9,7 +9,7 @@ export default defineConfig({
     rollupOptions: {
       input: {
         main: resolve(__dirname, 'src/index.html'),
-        watchlist: resolve(__dirname, 'src/watchlist/index.html'),
+        watchlists: resolve(__dirname, 'src/watchlist/index.html'),
         asteroiddetail: resolve(__dirname, 'src/asteroid-detail/index.html'),
         asteroidfind: resolve(__dirname, 'src/asteroid-detail/find.html'),
         asteroidfeed: resolve(__dirname, 'src/asteroid-feed/index.html'),
