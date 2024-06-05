@@ -66,9 +66,9 @@ function detailTemplate(asteroid) {
                         <span class="list-label">Miss Distance (km)</span>
                         <span class="list-label">Orbiting Body</span>
                     </section>`;
-    asteroid.close_approach_data.forEach ((approach)=> {
-        content += 
-        `            <div id="approachDates-Data">
+    asteroid.close_approach_data.forEach((approach) => {
+        content +=
+            `            <div id="approachDates-Data">
                         <section class="approachDates-item">
                             <span>${approach.close_approach_date_full}</span>
                             <span>${numFormat.format(Math.round(approach.relative_velocity.kilometers_per_second))}</span>
@@ -76,9 +76,9 @@ function detailTemplate(asteroid) {
                             <span>${approach.orbiting_body}</span>
                         </section>
                     </div>`
-        });
-    content += 
-    `           </div>`;
+    });
+    content +=
+        `           </div>`;
 
     return content;
 }
@@ -110,21 +110,21 @@ export default class AsteroidDetail {
             setBreadcrumb(breadcrumbList);
         }
         else {
-            this.renderDetail(errorMsg,createErrorBlock);
+            this.renderDetail(errorMsg, createErrorBlock);
 
             let breadcrumbList = [`<a href='../index.html'>Home</a>`, `<a href="/asteroid-detail/find.html">Find Asteroid by ID</a>`, `No Result`];
-            setBreadcrumb(breadcrumbList);  
+            setBreadcrumb(breadcrumbList);
         }
     }
 
     renderDetail(details, templateFn) {
-        renderWithTemplate(templateFn, this.detailElement, details, templateFn,'beforeend');
+        renderWithTemplate(templateFn, this.detailElement, details, templateFn, 'beforeend');
     }
 }
 
 function createErrorBlock(errorMessage) {
 
     return `<div class='no-results'>
-                <p>${errorMessage}</p
+                <p>${errorMessage}</p>
             </div>`
 }
