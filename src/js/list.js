@@ -1,6 +1,6 @@
 import { loadHeaderFooter, setLocalStorageSingle, getLocalStorage } from './utils.mjs';
 import AsteroidList from './AsteroidList.mjs';
-import ExternalServices  from './ExternalServices.mjs';
+import ExternalServices from './ExternalServices.mjs';
 const neowsBaseURL = import.meta.env.VITE_NEOWS;
 const neowsAPIKey = import.meta.env.VITE_NEOWS_APIKEY;
 const basepath = neowsBaseURL + `/neo/browse?api_key=${neowsAPIKey}`;
@@ -9,8 +9,8 @@ const viewKey = import.meta.env.VITE_VIEW_KEY;
 loadHeaderFooter();
 
 let urlParams = window.location.search;
-urlParams = urlParams.replace('?path=','')
-urlParams = urlParams.replace('HTTP', 'HTTPS');
+urlParams = urlParams.replace('?path=', '')
+urlParams = urlParams.replace('http', 'https');
 
 // had to override the params function due to the pagination.
 let dataPath = '';
