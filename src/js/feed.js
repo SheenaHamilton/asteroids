@@ -19,7 +19,7 @@ if (!paramPagePath) {
 } else {
     let getURL = getEntireParamsString();
     getURL = getURL.replace('?path=', '');
-    getURL = getURL.replace('HTTP=', 'HTTPS');
+    getURL = getURL.replace('HTTP', 'HTTPS');
     let urlParams = getURL.substring(getURL.indexOf('?'));
     urlParams = new URLSearchParams(urlParams);
     paramStartDate = urlParams.get('start_date');

@@ -1,26 +1,22 @@
-import { renderWithTemplate, setBreadcrumb, watchlistProcess } from './utils.mjs';
+import { renderWithTemplate, setBreadcrumb, watchlistProcess, findLocalStorageItem } from './utils.mjs';
+const watchKey = import.meta.env.VITE_WATCH_KEY;
 
 function detailTemplate(asteroid) {
-    let asteroidSize = '';
     const numFormat = new Intl.NumberFormat('en-US');
-    const asteroidImgs = {
-        'small': '../images/asteroids-small.webp',
-        'medium': '../images/asteroids-medium.webp',
-        'large': '../images/asteroids-large.webp'
-    }
-    if (asteroid.estimated_diameter.kilometers.estimated_diameter_max < 800) {
-        asteroidSize = asteroidImgs.small;
-    } else if (asteroid.estimated_diameter.kilometers.estimated_diameter_max < 1600) {
-        asteroidSize = asteroidImgs.medium;
-    } else if (asteroid.estimated_diameter.kilometers.estimated_diameter_max >= 1600) {
-        asteroidSize = asteroidImgs.large;
-    }
 
     let sentryBadge = 'low';
     if (asteroid.is_sentry_object == true) sentryBadge = 'high';
 
     let hazardBadge = 'low';
     if (asteroid.is_potentially_hazardous_asteroid == true) hazardBadge = 'high';
+
+    let watched = 'hide';
+    let unwatched = '';
+
+    if (findLocalStorageItem(watchKey,asteroid.id)) {
+        watched = '';
+        unwatched = 'hide';
+    }
 
     let content =
         `       <section class="asteroid-header">
@@ -30,13 +26,13 @@ function detailTemplate(asteroid) {
                         <span class="closest" hidden>${asteroid.close_approach_data[0].close_approach_date}</span>
                         <span class="size-km kms" hidden>${numFormat.format(asteroid.estimated_diameter.kilometers.estimated_diameter_max)}</span>
                         <div class="details-watchlist">
-                            <svg class="watch unselected" xmlns="http://www.w3.org/2000/svg"
+                            <svg class="watch unselected ${unwatched}" xmlns="http://www.w3.org/2000/svg"
                                 viewBox="0 0 384 512"><!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
                                 <path
                                     d="M0 48C0 21.5 21.5 0 48 0l0 48V441.4l130.1-92.9c8.3-6 19.6-6 27.9 0L336 441.4V48H48V0H336c26.5 0 48 21.5 48 48V488c0 9-5 17.2-13 21.3s-17.6 3.4-24.9-1.8L192 397.5 37.9 507.5c-7.3 5.2-16.9 5.9-24.9 1.8S0 497 0 488V48z">
                                 </path>
                             </svg>
-                            <svg class="watch hide" xmlns="http://www.w3.org/2000/svg"
+                            <svg class="watch ${watched}" xmlns="http://www.w3.org/2000/svg"
                                 viewBox="0 0 384 512"><!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
                                 <path
                                     d="M0 48V487.7C0 501.1 10.9 512 24.3 512c5 0 9.9-1.5 14-4.4L192 400 345.7 507.6c4.1 2.9 9 4.4 14 4.4c13.4 0 24.3-10.9 24.3-24.3V48c0-26.5-21.5-48-48-48H48C21.5 0 0 21.5 0 48z">

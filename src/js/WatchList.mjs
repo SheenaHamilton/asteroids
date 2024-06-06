@@ -3,8 +3,10 @@ import { renderListWithTemplate, setBreadcrumb, getLocalStorage, watchlistProces
 function watchTemplate(asteroid) {
     const numFormat = new Intl.NumberFormat('en-US');
 
+    //secondary div here is for the use of common code for the removal of the watchlist flag, it has to go up the parent node a certain leval and still remain in the items specifi block.
      const content =
     `<div class='watchitem-container'>
+     <div>
         <section class="watch-item">
             <span class="spaced id">${asteroid.asteroid_id}</span>
             <span class="name">${asteroid.name}</span>
@@ -23,6 +25,7 @@ function watchTemplate(asteroid) {
                 d="M0 48V487.7C0 501.1 10.9 512 24.3 512c5 0 9.9-1.5 14-4.4L192 400 345.7 507.6c4.1 2.9 9 4.4 14 4.4c13.4 0 24.3-10.9 24.3-24.3V48c0-26.5-21.5-48-48-48H48C21.5 0 0 21.5 0 48z" />
             </svg>
         </section>
+    </div>
     </div>`
    return content;
 }
@@ -49,6 +52,15 @@ export default class AsteroidWatchlist {
                     hidden.classList.toggle('hide');
                 })
             })
+
+            // Go to detailed View, create an event for each row
+            document.querySelectorAll('.watch-item').forEach(item => {
+                item.addEventListener('click', () => {
+                    const asteroid_id = item.querySelector('.id').textContent;
+                    window.location.href = `../asteroid-detail/index.html?asteroid_id=${asteroid_id}`;
+                });
+            });
+
             //set the breadcrumbs
             let breadcrumbList = [`<a href='../index.html'>Home</a>`, `<a href="/watchlist/index.html">Watchlist</a>`, `${watchData.length} results `];
             setBreadcrumb(breadcrumbList);
