@@ -6,10 +6,4 @@ export default class ExternalServices {
         const data = await convertToJson(response);
         return data;
     }
-
-    async getPage(address) {
-        const response = await fetch(address);
-        const data = await convertToJson(response);
-        return data;
-    }
 }

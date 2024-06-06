@@ -23,7 +23,7 @@ function feedTemplate(asteroid) {
     if (asteroid.is_potentially_hazardous_asteroid == true) hazardBadge = 'high';
 
     const content =
-    `<div>
+        `<div>
         <section class="browse-list">
             <p><span class="list-label">ASTEROID </span><span class="spaced id">${asteroid.id}</span></p>
             <p><span class="list-label">NAME</span> <span class="name">${asteroid.name}</span></p>
@@ -106,17 +106,17 @@ export default class AsteroidFeed {
         }
 
         // Set the results count
-        document.querySelector('#results').textContent = `${asteroidData.element_count } Results`;
+        document.querySelector('#results').textContent = `${asteroidData.element_count} Results`;
 
         //set the breadcrumbs
-        let breadcrumbList = [`<a href='../index.html'>Home</a>`, `<a href="/asteroid-feed/feed.html">Search by Approach Date</a>`, `<a href="/asteroid-feed/index.html?path=${asteroidData.links.self}">${this.startDate} to ${this.endDate }</a>`, `${ asteroidData.element_count } Results`];
+        let breadcrumbList = [`<a href='../index.html'>Home</a>`, `<a href="/asteroid-feed/feed.html">Search by Approach Date</a>`, `<a href="/asteroid-feed/index.html?path=${asteroidData.links.self}">${this.startDate} to ${this.endDate}</a>`, `${asteroidData.element_count} Results`];
         setBreadcrumb(breadcrumbList);
     }
 
     renderList(list) {
         renderListWithTemplate(feedTemplate, this.feedElement, list);
     }
-    
+
     addOneDayAndFormat(inputDate) {
         // Convert inputDate string to a Date object. Add one day an format the string
         var date = new Date(inputDate);
