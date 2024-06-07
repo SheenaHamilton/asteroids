@@ -46,7 +46,7 @@ grid.addEventListener('click', () => {
 
 //Get the latest key value 
 const userViewPref = getLocalStorage(viewKey);
-if (userViewPref == 'list') {
+if (userViewPref == 'list' && (window.innerWidth > 800)) {
     changeListView();
 }
 

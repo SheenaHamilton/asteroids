@@ -52,7 +52,7 @@ grid.addEventListener('click', () => {
 
 //Get the latest key value 
 const userViewPref = getLocalStorage(viewKey);
-if (userViewPref == 'feed-list') {
+if (userViewPref == 'feed-list' && (window.innerWidth > 800)) {
     changeFeedView();
 }
 
