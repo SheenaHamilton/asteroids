@@ -31,13 +31,12 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
-  margin: 0;
   font-family: var(--font-body);
   font-size: var(--font-base);
   color: var(--light-grey);
   width: 100vw;
   height: 100vh;
-  margin: auto;
+  margin: 0 auto;
 }
 
 p {
@@ -68,7 +67,7 @@ header {
 main {
   flex: 1;
   width: 90%;
-  margin: auto;
+  margin: 0 auto;
 }
 .logo {
   line-height: 200px;
