@@ -47,7 +47,6 @@ p {
 a {
   text-decoration: none;
   color: var(--accent2-color);
-
 }
 
 a:hover {
@@ -148,7 +147,7 @@ ul#breadcrumb li a {
 
 ul#breadcrumb li a:hover {
   color: var(--accent1-color);
-  text-decoration: underline;
+  text-decoration: none;
 }
 
 /* End Breadcrumbs*/
