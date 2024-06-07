@@ -803,7 +803,10 @@ footer {
   padding: 0 50px;
 }  
 
-#watchlist-tableheader {
+.watchlist-tableheader-mobile {
+  display: none;
+}
+#watchlist-tableheader, .watchlist-tableheader-mobile {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
   column-gap: 10px;
@@ -836,4 +839,166 @@ footer {
 .watchitem-container:hover {
   background-color: rgba(250, 250, 250, .2);
   cursor: pointer;
+}
+
+@media screen and (max-width:500px) {
+
+  header {
+    width: 100%;
+    font-size: .6em;
+    justify-content: space-around;
+    height: 150px;
+  }
+
+  .logo {
+    margin: auto 0;
+    line-height: 100px;
+  }
+
+  .logo img {
+    width: 100px;
+    height: auto;
+    margin: auto;
+  }
+
+  .watchlist svg {
+    height: 40px;
+    margin: auto;
+  }
+  #watchlist-header {
+    padding: 10px;
+  }
+  .watchlist-container{ 
+    height: 100%;
+
+  }
+  .slideout {
+    display: none;
+  }
+
+  .asteroid-choices {
+    margin: 20px auto;
+  }
+  .choice-card:hover {
+    transform: none;
+  }
+
+  main {
+    width: 95%;
+  }
+  /* watchlist*/
+  
+  #asteroidwatch-format.list-view {
+    padding: 10px;
+  }
+
+  .list-view .spaced {
+    letter-spacing: 0px;
+    font-weight: bold;
+  }
+
+  #watchlist-tableheader {
+    grid-template-columns: .8fr 1fr .4fr .4fr .3fr;
+    font-size: .8em;
+  }
+
+  #watchlist-tableheader :nth-child(2),
+  #watchlist-tableheader :nth-child(4){
+    display: none;
+  }
+  #watchlist-tableheader :nth-child(5),
+  #watchlist-tableheader :nth-child(6) {
+    font-size: .8em;
+  }
+  #watchlist-results .watch-item {
+    grid-template-columns: .8fr 1fr  .4fr .4fr .3fr;
+  }
+  .watch-item .name,  .watch-item .kms {
+    display: none;
+  }
+  .list-view .badge {
+      width: 20px;
+  }
+  svg.watch {
+    height: 40px;
+  }
+
+  /* Browse */
+  .asteroid-view {
+    display: none;
+  }
+
+  #results {
+    padding: 0 20px;
+  }
+
+    /* Feed */
+  #asteroid-feed,
+  #asteroid-find {
+    width: 100%;
+  }
+  #previous span,
+  #next span {
+    display: none;
+  }
+  #pagenav svg {
+    height: 40px;
+  }
+  #pagenav {
+    width: 100%;
+    justify-content: space-between;
+  }
+  .grid-view .browse-list:hover {
+    transform: none;
+  }
+
+  /* Picture of the Day */
+  #picofDay-container {
+    width: 100%;
+    padding: 20px 5px;
+  }
+  .title-block {
+    display: block;
+    font-size: 1.3em;
+    letter-spacing: 4px;
+  }
+
+  #photo-description {
+    width: 95%;
+    font-size: 1em;
+  }
+
+  /* Details */
+  #asteroiddetail {
+    width: 100%;
+  }
+
+  #title-header {
+    flex-direction: column;
+  }
+
+  #asteroiddetail p {
+    padding: 0 0;
+  }
+  .asteroid-data-container {
+    display: grid;
+    grid-template-columns: 1fr .5fr;
+    margin: 20px 0;
+    column-gap: 10px;
+    row-gap: 3px;
+    width: 100%;
+  }
+  #approachDates-header,
+  .approachDates-item {
+    grid-template-columns: 1fr 1fr .5fr;
+    column-gap: 5px;
+  }
+
+
+  #approachDates-header :nth-child(2) {
+    display: none;
+  }
+  #approachDates-Data :nth-child(2) {
+    display: none;
+  }
 }

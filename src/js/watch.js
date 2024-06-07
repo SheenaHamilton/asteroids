@@ -5,7 +5,7 @@ import AsteroidWatchlist from './WatchList.mjs'
 loadHeaderFooter();
 
 //set the breadcrumbs
-let breadcrumbList = [`<a href='../index.html'>Home</a>`, `<a href="/watchlist/index.html">Watchlist</a>`];
+let breadcrumbList = [`<a href='../index.html'>Home</a>`, `<a href='/watchlist/index.html'>Watchlist</a>`];
 setBreadcrumb(breadcrumbList);
 
 

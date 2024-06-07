@@ -1,37 +1,37 @@
 <!doctype html>
-<html lang="en">
+<html lang='en'>
 
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset='UTF-8' />
+    <meta name='viewport' content='width=device-width, initial-scale=1.0' />
     <title>Asteroids</title>
-    <link rel="stylesheet" href="../css/style.css" />
+    <link rel='stylesheet' href='../css/style.css' />
 </head>
 
 <body>
     <header></header>
     <main>
-        <ul id="breadcrumb"></ul>
-        <div id="asteroid-feed">
-            <p class="title">Closest Apprach to Earth</p>
+        <ul id='breadcrumb'></ul>
+        <div id='asteroid-feed'>
+            <p class='title'>Closest Apprach to Earth</p>
             <p>Search for Asteroids based on their closest approach date to Earth.</p>
             <p>Please enter the start and end dates you'd like to view:</p>
-            <form action="../asteroid-feed/index.html">
-                <div id="date-inputs">
+            <form action='../asteroid-feed/index.html'>
+                <div id='date-inputs'>
                     <div>
-                        <label>Start Date<input type="date" id="startDate" name="start_date" required/></label>
-                        <div class="validation" id="startinputvalid"></div>
+                        <label>Start Date<input type='date' id='startDate' name='start_date' required/></label>
+                        <div class='validation' id='startinputvalid'></div>
                     </div>
                     <div>
-                        <label>End Date<input type="date" id="endDate" name="end_date" required/></label>
-                        <div class="validation" id="endinputvalid"></div>
+                        <label>End Date<input type='date' id='endDate' name='end_date' required/></label>
+                        <div class='validation' id='endinputvalid'></div>
                     </div>
                 </div>
-                <input type="submit" id="SearchByDate" value="Search Asteroids">
+                <input type='submit' id='SearchByDate' value='Search Asteroids'>
             </form>
         </div>
 
-        <script src="../js/feeddates.js" type="module"></script>
+        <script src='../js/feeddates.js' type='module'></script>
     </main>
     <footer></footer>
 </body>

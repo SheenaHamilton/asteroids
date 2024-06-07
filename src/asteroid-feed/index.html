@@ -1,56 +1,56 @@
 <!doctype html>
-<html lang="en">
+<html lang='en'>
 
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset='UTF-8' />
+    <meta name='viewport' content='width=device-width, initial-scale=1.0' />
     <title>Asteroids</title>
-    <link rel="stylesheet" href="../css/style.css" />
-    <script src="../js/feed.js" type="module"></script>
+    <link rel='stylesheet' href='../css/style.css' />
+    <script src='../js/feed.js' type='module'></script>
 </head>
 
 <body>
     <header></header>
     <main>
-        <ul id="breadcrumb">
-            <li class="breadcrumb"><a href="../index.html">Home</a></li>
-            <li class="breadcrumb"><a href="/asteroid-feed/feed.html">Search by Approach Date</a></li>
+        <ul id='breadcrumb'>
+            <li class='breadcrumb'><a href='../index.html'>Home</a></li>
+            <li class='breadcrumb'><a href='/asteroid-feed/feed.html'>Search by Approach Date</a></li>
         </ul>
-        <div id="results-header">
-            <div id="pagenav">
-                <div id="previous" class="nav-arrows">
+        <div id='results-header'>
+            <div id='pagenav'>
+                <div id='previous' class='nav-arrows'>
                     <span>Previous Date Range&nbsp;&nbsp;</span>
-                    <svg xmlns="http://www.w3.org/2000/svg"
-                        viewBox="0 0 320 512"><!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+                    <svg xmlns='http://www.w3.org/2000/svg'
+                        viewBox='0 0 320 512'><!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
                         <path
-                            d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l192 192c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256 246.6 86.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-192 192z" />
+                            d='M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l192 192c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256 246.6 86.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-192 192z' />
                     </svg>
                 </div>
-                <span id="results"></span>
-                <div id="next" class="nav-arrows">
-                    <svg xmlns="http://www.w3.org/2000/svg"
-                        viewBox="0 0 320 512"><!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+                <span id='results'></span>
+                <div id='next' class='nav-arrows'>
+                    <svg xmlns='http://www.w3.org/2000/svg'
+                        viewBox='0 0 320 512'><!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
                         <path
-                            d="M310.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-192 192c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L242.7 256 73.4 86.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l192 192z" />
+                            d='M310.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-192 192c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L242.7 256 73.4 86.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l192 192z' />
                     </svg>
                     <span>&nbsp;&nbsp;Next Date Range</span>
                 </div>
             </div>
-            <div class="asteroid-view">
-                <button id="button-list">List </button>
-                <button id="button-grid" class="list-active">Grid </button>
+            <div class='asteroid-view'>
+                <button id='button-list'>List </button>
+                <button id='button-grid' class='list-active'>Grid </button>
             </div>
         </div>
-        <div id="asteroidlist-format" class="grid-view">
-            <div id="asteroid-tableheader">
+        <div id='asteroidlist-format' class='grid-view'>
+            <div id='asteroid-tableheader'>
                 <p>Asteroid ID</p>
                 <p>Name</p>
                 <p>Closest Approach</p>
                 <p>Diameter Range (km)</p>
-                <p class="hazard-badges"><span>Hazard Level</span><span>Sentry Watch</span><span>Watch</span></p>
+                <p class='hazard-badges'><span>Hazard Level</span><span>Sentry Watch</span><span>Watch</span></p>
             </div>
 
-        <div id="asteroidlisting"></div>
+        <div id='asteroidlisting'></div>
     </main>
     <footer></footer>
 </body>
